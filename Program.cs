@@ -10,15 +10,15 @@
 
 	internal static class ExtensionMethods
 	{
-		public static PercentCalculator CalcPercent(this double sum, int percent)
+		public static PercentCalculator CalculatePercent(this double sum, int percent)
 		{
 			return new PercentCalculator(sum, percent); ;
 		}
-		public static PercentCalculator CalcPercent(this double sum, double percent)
+		public static PercentCalculator CalculatePercent(this double sum, double percent)
 		{
 			return new PercentCalculator(sum, percent); ;
 		}
-		public static PercentCalculator CalcPercent(this int sum, int percent)
+		public static PercentCalculator CalculatePercent(this int sum, int percent)
 		{
 			return new PercentCalculator(sum, percent); ;
 		}
@@ -47,22 +47,22 @@
 
 	class PercentCalculator
 	{
-		public double persentPart;
+		public double percentPart;
 		public double loweredSum;
 		public double increasedSum;
 		public PercentCalculator() { }
 		public PercentCalculator(double sum, int percent)
 		{
 			double newPercent = Convert.ToDouble(percent);
-			persentPart = sum * (newPercent / 100);
-			loweredSum = sum - persentPart;
-			increasedSum = sum + persentPart;
+			percentPart = sum * (newPercent / 100);
+			loweredSum = sum - percentPart;
+			increasedSum = sum + percentPart;
 		}
 		public PercentCalculator(double sum, double percent)
 		{
-			persentPart = sum * (percent / 100);
-			loweredSum = sum - persentPart;
-			increasedSum = sum + persentPart;
+			percentPart = sum * (percent / 100);
+			loweredSum = sum - percentPart;
+			increasedSum = sum + percentPart;
 
 		}
 	}
