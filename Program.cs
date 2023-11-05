@@ -4,7 +4,7 @@
 	{
 		static void Main()
 		{
-			
+
 		}
 	}
 
@@ -36,13 +36,39 @@
 	internal class ConsoleReads
 	{
 		public static int IntRead()
-		{ return Convert.ToInt32(Console.ReadLine()?.Trim()); }
+		{
+			int returnValue;
+			while (true)
+			{
+				bool success = int.TryParse(Console.ReadLine()?.Trim(), out returnValue);
+				if (!success)
+				{
+					Console.WriteLine("Invalid input");
+					continue;
+				}
+				break;
+			}
+			return returnValue;
+		}
 
 		public static double DoubleRead()
-		{ return Convert.ToDouble(Console.ReadLine()?.Trim()); }
+		{
+			double returnValue;
+			while (true)
+			{
+				bool success = double.TryParse(Console.ReadLine()?.Trim(), out returnValue);
+				if (!success)
+				{
+					Console.WriteLine("Invalid input");
+					continue;
+				}
+				break;
+			}
+			return returnValue;
+		}
 
-		public static string StringRead()
-		{ return Console.ReadLine()!.Trim(); }
+		public static string? StringRead()
+		{ return Console.ReadLine()?.Trim(); }
 	}
 
 	class PercentCalculator
