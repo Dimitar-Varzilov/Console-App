@@ -12,7 +12,7 @@ namespace Console_App
 				bool success = int.TryParse(Console.ReadLine()?.Trim(), out returnValue);
 				if (!success)
 				{
-					Console.WriteLine("Invalid input");
+					Console.WriteLine("Invalid Integer");
 					continue;
 				}
 				break;
@@ -27,7 +27,7 @@ namespace Console_App
 				bool success = double.TryParse(Console.ReadLine()?.Trim(), out returnValue);
 				if (!success)
 				{
-					Console.WriteLine("Invalid input");
+					Console.WriteLine("Invalid Double");
 					continue;
 				}
 				break;
