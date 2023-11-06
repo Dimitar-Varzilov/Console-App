@@ -34,7 +34,7 @@ namespace Console_App
 			}
 			return returnValue;
 		}
-		public static string StringRead(string? cancelationString = null)
+		public static string StringRead(string? cancelationString = null, List<string>? strings = null)
 		{
 			string returnValue = string.Empty;
 			while (true)
@@ -49,7 +49,10 @@ namespace Console_App
 				{
 					returnValue += input;
 				}
-				if (cancelationString != null && returnValue == cancelationString)
+				strings?.Add(input);
+				if (cancelationString != null && input != cancelationString)
+					continue;
+				else if (strings != null)
 					continue;
 
 				break;
