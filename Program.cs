@@ -1,4 +1,6 @@
-﻿namespace Console_App
+﻿using System.Net;
+
+namespace Console_App
 {
 	internal class Program
 	{
@@ -32,12 +34,12 @@
 			}
 			return returnValue;
 		}
-		public static string StringRead()
+		public static string StringRead(string? cancelationString = null)
 		{
-			string returnValue;
+			string returnValue = string.Empty;
 			while (true)
 			{
-				string? input = Console.ReadLine()?.Trim();
+				string? input = Console.ReadLine();
 				if (input == null)
 				{
 					Console.WriteLine("Invalid String");
@@ -45,8 +47,11 @@
 				}
 				else
 				{
-					returnValue = input;
+					returnValue += input;
 				}
+				if (cancelationString != null && returnValue == cancelationString)
+					continue;
+
 				break;
 			}
 			return returnValue;
