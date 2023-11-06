@@ -1,6 +1,4 @@
-﻿using System.Globalization;
-
-namespace Console_App
+﻿namespace Console_App
 {
 	internal class Program
 	{
@@ -34,8 +32,25 @@ namespace Console_App
 			}
 			return returnValue;
 		}
-		public static string? StringRead()
-		{ return Console.ReadLine()?.Trim(); }
+		public static string StringRead()
+		{
+			string returnValue;
+			while (true)
+			{
+				string? input = Console.ReadLine()?.Trim();
+				if (input == null)
+				{
+					Console.WriteLine("Invalid String");
+					continue;
+				}
+				else
+				{
+					returnValue = input;
+				}
+				break;
+			}
+			return returnValue;
+		}
 
 
 		static void Main()
