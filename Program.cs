@@ -1,13 +1,49 @@
-﻿namespace Console_App
+﻿using System.Globalization;
+
+namespace Console_App
 {
-	internal class Program : ConsoleReads
+	internal class Program
 	{
+		public static int IntRead()
+		{
+			int returnValue;
+			while (true)
+			{
+				bool success = int.TryParse(Console.ReadLine()?.Trim(), out returnValue);
+				if (!success)
+				{
+					Console.WriteLine("Invalid input");
+					continue;
+				}
+				break;
+			}
+			return returnValue;
+		}
+		public static double DoubleRead()
+		{
+			double returnValue;
+			while (true)
+			{
+				bool success = double.TryParse(Console.ReadLine()?.Trim(), out returnValue);
+				if (!success)
+				{
+					Console.WriteLine("Invalid input");
+					continue;
+				}
+				break;
+			}
+			return returnValue;
+		}
+		public static string? StringRead()
+		{ return Console.ReadLine()?.Trim(); }
+
+
 		static void Main()
 		{
 
 		}
-	}
 
+	}
 	internal static class ExtensionMethods
 	{
 		public static PercentCalculator CalculatePercent(this double sum, int percent)
@@ -32,45 +68,6 @@
 			return value >= minimum && value <= maximum;
 		}
 	}
-
-	internal class ConsoleReads
-	{
-		public static int IntRead()
-		{
-			int returnValue;
-			while (true)
-			{
-				bool success = int.TryParse(Console.ReadLine()?.Trim(), out returnValue);
-				if (!success)
-				{
-					Console.WriteLine("Invalid input");
-					continue;
-				}
-				break;
-			}
-			return returnValue;
-		}
-
-		public static double DoubleRead()
-		{
-			double returnValue;
-			while (true)
-			{
-				bool success = double.TryParse(Console.ReadLine()?.Trim(), out returnValue);
-				if (!success)
-				{
-					Console.WriteLine("Invalid input");
-					continue;
-				}
-				break;
-			}
-			return returnValue;
-		}
-
-		public static string? StringRead()
-		{ return Console.ReadLine()?.Trim(); }
-	}
-
 	class PercentCalculator
 	{
 		public double percentPart;
