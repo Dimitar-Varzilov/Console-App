@@ -35,9 +35,8 @@ namespace Console_App
 			}
 			return returnValue;
 		}
-		public static string StringRead(string? cancelationString = null, List<string>? strings = null)
+		public static string StringRead(string? cancelationString = null, List<string>? stringList = null)
 		{
-			string returnValue = string.Empty;
 			while (true)
 			{
 				string? input = Console.ReadLine();
@@ -46,19 +45,14 @@ namespace Console_App
 					Console.WriteLine("Invalid String");
 					continue;
 				}
-				else
-				{
-					returnValue += input;
-				}
-				strings?.Add(input);
+				stringList?.Add(input);
 				if (cancelationString != null && input != cancelationString)
 					continue;
-				else if (strings != null)
+				else if (stringList != null)
 					continue;
 
-				break;
+				return input;
 			}
-			return returnValue;
 		}
 
 
