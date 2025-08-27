@@ -48,7 +48,7 @@ namespace Console_App
 
 		}
 	}
-	internal class Program
+	internal class Solution
 	{
 		public static int IntRead()
 		{
