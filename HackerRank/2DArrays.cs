@@ -12,7 +12,7 @@ namespace Console_App.HackerRanks
 
 			for (int i = 0; i < 6; i++)
 			{
-				arr.Add([.. Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arrTemp => Convert.ToInt32(arrTemp))]);
+				arr.Add([.. Console.ReadLine().TrimEnd().Split(' ').Select(arrTemp => Convert.ToInt32(arrTemp))]);
 			}
 
 			int rows = arr.Count;
