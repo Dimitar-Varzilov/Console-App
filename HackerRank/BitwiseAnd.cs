@@ -1,27 +1,24 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Console_App.HackerRank
+﻿namespace Console_App.HackerRank
 {
 	internal static class BitwiseAnd
 	{
+		// Returns the maximum value of (a & b) < K for 0 < a < b < N
 		public static int bitwiseAnd(int N, int K)
 		{
-			IList<int> values = [.. Enumerable.Range(0, N)];
-			HashSet<int> res = [];
+			int max = 0;
 
-			for (int i = 0; i < values.Count - 1; i++)
+			for (int a = 1; a <= N; a++)
 			{
-				for (int j = 0; j < values.Count - 1; j++)
+				for (int b = a + 1; b <= N; b++)
 				{
-					int bitWiseAnd = values[i] & values[j];
-					if (bitWiseAnd < K)
+					int val = a & b;
+					if (val < K && val > max)
 					{
-						res.Add(bitWiseAnd);
+						max = val;
 					}
 				}
 			}
-			return res.Max();
+			return max;
 		}
 	}
 }
